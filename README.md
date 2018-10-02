@@ -1,4 +1,6 @@
-======IPL DATA PROJECT======
+======
+IPL DATA PROJECT
+======
 
 IPL DATA PROJECT is a simple django app that takes a csv file and plots the graph for following questions using high charts.
 
