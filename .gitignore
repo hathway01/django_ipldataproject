@@ -1,3 +1,5 @@
 /dataproject/
-/__pycache__/
+__pycache__/
+.idea/
 manage.py
+.pyc
