@@ -2,5 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from project.models import Matches,Deliveries
 
-# Register your models here.
+admin.site.register(Matches)
+admin.site.register(Deliveries)

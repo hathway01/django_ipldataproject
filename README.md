@@ -1,8 +1,7 @@
-======
-IPL DATA PROJECT
-======
+IPL Data Project
+=================
 
-IPL DATA PROJECT is a simple django app that takes a csv file and plots the graph for following questions using high charts:
+IPL Data Project is a simple django app that takes a csv file and plots the graph for following questions using high charts:
 
 Generate the following plots ...
 
