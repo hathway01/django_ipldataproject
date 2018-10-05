@@ -1,7 +1,9 @@
-from django.core.management.base import BaseCommand
-from project.models import Matches,Deliveries
-from django.conf import settings
 import csv
+
+from django.core.management.base import BaseCommand
+from django.db import transaction
+
+from project.models import Matches, Deliveries
 
 
 class Command(BaseCommand):
@@ -13,6 +15,7 @@ class Command(BaseCommand):
             type=str,
         )
 
+    @transaction.atomic
     def handle(self,*args,**options):
         match_csv = options["file_path"][0]
         deliveries_csv = options["file_path"][1]

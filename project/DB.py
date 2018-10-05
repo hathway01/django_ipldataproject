@@ -1,5 +1,6 @@
-from project.models import Matches,Deliveries
 from django.db.models import Count, Avg, F, Sum
+
+from project.models import Matches, Deliveries
 
 
 def match_per_season():
@@ -7,13 +8,15 @@ def match_per_season():
     return season_data
 
 def run_conceded_by_team():
-    match2016 = Matches.objects.filter(season=2016)
-    teams  = Deliveries.objects.filter(match_id_id__in=match2016).only("bowling_team").values("bowling_team").annotate(runs=Sum("extra_runs"))
+    match_in_2016 = Matches.objects.filter(season=2016)
+    teams = Deliveries.objects.filter(match_id_id__in=match_in_2016).only("bowling_team").values(
+        "bowling_team").annotate(runs=Sum("extra_runs"))
     return teams
 
 def economical_bowlers():
-    match2015 = Matches.objects.only("season", "id").filter(season=2015)
-    bowlers = Deliveries.objects.filter(match_id_id__in=match2015).values("bowler").annotate(avg=Avg("total_runs")*6).order_by('avg')[:10]
+    match_in_2015 = Matches.objects.only("season", "id").filter(season=2015)
+    bowlers = Deliveries.objects.filter(match_id_id__in=match_in_2015).values("bowler").annotate(
+        avg=Avg("total_runs") * 6).order_by('avg')[:10]
     return bowlers
 
 def match_won_per_team_per_season():

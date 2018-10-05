@@ -1,5 +1,5 @@
 /dataproject/
-/__pycache__/
 .idea/
 manage.py
-*.pyc
+__pycache__/
+*.py[cod]
